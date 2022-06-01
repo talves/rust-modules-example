@@ -1,5 +1,5 @@
 #![allow(dead_code, unused_variables)]
-struct Credentials {
+pub struct Credentials {
     username: String,
     password: String,
 }
@@ -25,7 +25,7 @@ fn logout() {
     //logout the user...
 }
 
-fn authenticate(creds: Credentials) {
+pub fn authenticate(creds: Credentials) {
     if let Status::Connected = connect_to_database() {
         login(creds);
     }
