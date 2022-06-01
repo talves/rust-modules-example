@@ -2,8 +2,8 @@
 mod auth_utils;
 mod database;
 
-use crate::auth_utils::models::Credentials;
-use crate::database::Status;
+use auth_utils::models::Credentials;
+use database::Status;
 
 pub fn authenticate(creds: Credentials) {
     if let Status::Connected = crate::database::connect_to_database() {
