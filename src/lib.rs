@@ -34,7 +34,9 @@ mod auth_utils {
     }
 }
 
-pub fn authenticate(creds: crate::auth_utils::models::Credentials) {
+use crate::auth_utils::models::Credentials;
+
+pub fn authenticate(creds: Credentials) {
     if let crate::database::Status::Connected = crate::database::connect_to_database() {
         crate::auth_utils::login(creds);
     }
