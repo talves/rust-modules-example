@@ -26,16 +26,16 @@ mod auth_utils {
         //logout the user...
     }
 
-    mod models {
+    pub mod models {
         pub struct Credentials {
             username: String,
             password: String,
         }
     }
+}
 
-    pub fn authenticate(creds: models::Credentials) {
-        if let crate::database::Status::Connected = crate::database::connect_to_database() {
-            login(creds);
-        }
+pub fn authenticate(creds: crate::auth_utils::models::Credentials) {
+    if let crate::database::Status::Connected = crate::database::connect_to_database() {
+        crate::auth_utils::login(creds);
     }
 }
